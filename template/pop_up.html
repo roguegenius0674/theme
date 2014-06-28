@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>pop_up</title>
+  <meta name="description" content="">
+  <meta name="author" content="Duane">
+
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!--this is where I added the data for the popup window-->
+  <!-- Newsletter HTML -->
+<a id="signup" href="#newsletter-popup"></a><!-- a tag to trigger fancybox click -->
+<div id="newsletter-popup"><!-- newsletter div -->
+    <div id="newsletter-popup-wrap">
+            <div id="newsletter-popup-content">
+                    <h1>Please Join the Mailing List!</h1>
+                    <div class="BlockContent">
+                        <form>
+                           <input type="email" onclick="this.value='';" value="E-mail Address">
+                            <input type="submit" value="%%LNG_Submit%%" class="Button"  name="Submit">
+                        </form>
+                    </div>
+                    <span>Receive exclusive offers! </span>
+            </div><!-- end content -->
+    </div><!-- end wrap -->
+</div><!-- end newsletter div -->
+
+<!-- Newsletter JS -->
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check for recent cookie
+    //if cookie, don't show popup    
+    var visited = $.cookie('visited');
+    if (visited == 'yes') {
+        return false;
+    } else {
+    //show popup
+        $("#signup").fancybox({'overlayShow':true,frameWidth:621,frameHeight:524,padding:2,'hideOnContentClick':false}).trigger('click');
+    }
+    //and set a cookie with expiration some number of days in the future
+    $.cookie('visited', 'yes', { expires: 14 });
+});
+</script>
+  <!--This is where the added file stops-->
+</head>
+
+<body>
+  <div>
+    <header>
+      <h1>This is a test pop-up page</h1>
+    </header>
+    <nav>
+      <p><a href="/">Home</a></p>
+      <p><a href="/contact">Contact</a></p>
+    </nav>
+
+    <div>
+      
+    </div>
+
+    <footer>
+     <p>&copy; Copyright  by Duane Sweazy</p>
+    </footer>
+  </div>
+</body>
+</html>
